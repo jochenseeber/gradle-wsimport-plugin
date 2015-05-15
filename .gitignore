@@ -1,0 +1,15 @@
+*~
+/.classpath
+/.gradle
+/.project
+/.settings
+/bin
+/build
+/target
+\#*\#
+/.checkstyle
+/bin/
+/build/
+/target/
+/src/main/checkstyle/checkstyle.xml
+/src/test/checkstyle/checkstyle.xml

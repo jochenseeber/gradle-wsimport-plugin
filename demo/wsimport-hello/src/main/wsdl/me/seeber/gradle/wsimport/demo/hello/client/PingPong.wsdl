@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://pingpong.bpel.tps" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://pingpong.bpel.tps" xmlns:intf="http://pingpong.bpel.tps" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://pingpong.bpel.tps" xmlns="http://www.w3.org/2001/XMLSchema">
+   <element name="echoInput">
+    <complexType>
+     <sequence>
+      <element name="input" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="echoInputResponse">
+    <complexType>
+     <sequence>
+      <element name="echoInputReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="echoInputResponse">
+
+      <wsdl:part element="impl:echoInputResponse" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="echoInputRequest">
+
+      <wsdl:part element="impl:echoInput" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:portType name="PingPong">
+
+      <wsdl:operation name="echoInput">
+
+         <wsdl:input message="impl:echoInputRequest" name="echoInputRequest"/>
+
+         <wsdl:output message="impl:echoInputResponse" name="echoInputResponse"/>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="PingPongSoapBinding" type="impl:PingPong">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="echoInput">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="echoInputRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="echoInputResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="PingPongService">
+
+      <wsdl:port binding="impl:PingPongSoapBinding" name="PingPong">
+
+         <wsdlsoap:address location="http://157.159.110.224:9000/PingPong/services/PingPong"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>
