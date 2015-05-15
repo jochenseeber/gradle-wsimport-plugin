@@ -1,0 +1,51 @@
+buildscript {
+    repositories {
+        mavenLocal()
+        mavenCentral()
+    }
+
+    dependencies {
+        classpath group: 'com.github.jochenseeber', name: 'gradle-wsimport-plugin', version: '0.1.0'
+    }
+}
+
+plugins { id "de.undercouch.download" version "1.2" }
+plugins { id 'com.github.hierynomus.license' version '0.11.0' }
+
+import de.undercouch.gradle.tasks.download.Download
+
+group = 'me.seeber.gradle.wsimport.demo'
+version = '1.0.0'
+description = """Hello world demo project for Gradle wsimport plugin"""
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+}
+
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'me.seeber.wsimport'
+
+task downloadWsdl(type: Download) {
+    description 'Download WSDL'
+    src 'http://www-inf.int-evry.fr/cours/WebServices/TP_BPEL/files/PingPong.wsdl'
+    dest 'src/main/wsdl/me/seeber/gradle/wsimport/demo/hello/client/PingPong.wsdl'
+}
+
+jar {
+    manifest { attributes 'Main-Class': 'me.seeber.gradle.wsimport.demo.hello.HelloMain' }
+}
+
+eclipse {
+    project { name = "${name}-${version}" }
+
+    classpath {
+        downloadSources = true
+        downloadJavadoc = true
+    }
+}
+
+license { header = file('LICENSE.txt') }
+
