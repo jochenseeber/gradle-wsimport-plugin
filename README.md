@@ -11,7 +11,7 @@ Applying the plugin
 ### Gradle 2.1 and higher
 
     plugins {
-        id 'me.seeber.github.gradle-wsimport-plugin' version '0.1.0'
+        id 'me.seeber.github.gradle-wsimport-plugin' version '0.1.1'
     }
 
 ### Gradle 1.x and 2.0
@@ -21,7 +21,7 @@ Applying the plugin
             jcenter()
         }
         dependencies {
-            classpath 'me.seeber.github.gradle-wsimport-plugin:0.1.0'
+            classpath 'me.seeber.github.gradle-wsimport-plugin:0.1.1'
         }
     }
 

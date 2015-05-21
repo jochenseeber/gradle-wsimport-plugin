@@ -33,17 +33,17 @@ import org.gradle.api.tasks.incremental.IncrementalTaskInputs
 public class WsimportTask extends DefaultTask {
     @InputDirectory
     File inputDir
-    
+
     @OutputDirectory
     File outputDir
-    
+
     @TaskAction
     void execute(IncrementalTaskInputs inputs) {
         inputs.outOfDate { change ->
             if(change.file.name =~ /\.wsdl$/) {
                 def relativeSourceFile = new File(inputDir.toURI().relativize(change.file.toURI()).toString())
                 def packageName = relativeSourceFile.parent.replace('/', '.')
-                
+
                 ant.taskdef(name: 'wsimport',
                 classname: 'com.sun.tools.ws.ant.WsImport',
                 classpath: project.configurations.wsimport.asPath)
@@ -51,12 +51,13 @@ public class WsimportTask extends DefaultTask {
                 package: packageName,
                 sourcedestdir: outputDir,
                 wsdl: change.file,
+                wsdlLocation: change.file.name,
                 extension: true,
                 xendorsed: true,
                 xnocompile: true)
             }
         }
-        
+
         inputs.removed { change ->
             def targetFile = new File(outputDir, change.file.path)
             targetFile.delete()

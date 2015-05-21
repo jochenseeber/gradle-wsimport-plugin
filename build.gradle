@@ -11,7 +11,7 @@ apply plugin: 'eclipse'
 apply plugin: 'com.gradle.plugin-publish'
 
 group = 'com.github.jochenseeber'
-version = '0.1.0'
+version = '0.1.1'
 description = '''Gradle wsimport plugin'''
 
 repositories {

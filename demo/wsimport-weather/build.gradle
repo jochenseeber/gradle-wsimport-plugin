@@ -5,7 +5,7 @@ buildscript {
     }
 
     dependencies {
-        classpath group: 'com.github.jochenseeber', name: 'gradle-wsimport-plugin', version: '0.1.0'
+        classpath group: 'com.github.jochenseeber', name: 'gradle-wsimport-plugin', version: '0.1.1'
     }
 }
 

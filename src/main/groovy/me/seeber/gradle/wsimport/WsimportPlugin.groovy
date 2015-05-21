@@ -33,35 +33,37 @@ public class WsimportPlugin implements Plugin<Project> {
     void apply(Project project) {
         project.configure(project) {
             apply plugin: 'java'
-            
+
             configurations.create('wsimport') {
                 description = 'The JAX-WS libraries used for the wsimport task'
                 extendsFrom configurations.compile
                 visible = false
                 transitive = true
             }
-            
+
             dependencies {
                 wsimport group: 'com.sun.xml.ws', name: 'jaxws-tools', version: '2.2.10'
             }
-            
+
             sourceSets.all { SourceSet sourceSet ->
                 String taskName = sourceSet.getTaskName('wsimport', '')
                 File wsdlDir = file("src/${sourceSet.name}/wsdl")
-                
+
                 if(wsdlDir.directory) {
                     String infix = sourceSet.name == 'main' ? '' : "-${sourceSet.name}"
                     File generatedSourcesDir = new File(project.buildDir, "generated${infix}-src/wsimport")
-                    
+
                     Task wsimportTask = task(taskName, type: WsimportTask) {
                         description = 'Generate JAX-WS code from WSDL'
                         inputDir = wsdlDir
                         outputDir = generatedSourcesDir
                         group = 'generated'
                     }
-                    
+
                     java { srcDir generatedSourcesDir }
-                    
+
+                    resources { srcDir wsdlDir }
+
                     project.tasks[sourceSet.compileJavaTaskName].dependsOn(wsimportTask)
                 }
             }
