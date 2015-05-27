@@ -53,6 +53,9 @@ public class WsimportPlugin implements Plugin<Project> {
                     String infix = sourceSet.name == 'main' ? '' : "-${sourceSet.name}"
                     File generatedSourcesDir = new File(project.buildDir, "generated${infix}-src/wsimport")
 
+                    // Create directory early so eclipse plugin will find it
+                    generatedSourcesDir.mkdirs()
+
                     Task wsimportTask = task(taskName, type: WsimportTask) {
                         description = 'Generate JAX-WS code from WSDL'
                         inputDir = wsdlDir
