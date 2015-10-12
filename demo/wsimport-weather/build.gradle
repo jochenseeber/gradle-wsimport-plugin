@@ -5,12 +5,14 @@ buildscript {
     }
 
     dependencies {
-        classpath group: 'com.github.jochenseeber', name: 'gradle-wsimport-plugin', version: '0.2.0'
+        classpath group: 'gradle.plugin.me.seeber', name: 'gradle-wsimport-plugin', version: '0.2.0'
     }
 }
 
-plugins { id "de.undercouch.download" version "1.2" }
-plugins { id 'com.github.hierynomus.license' version '0.11.0' }
+plugins {
+    id 'de.undercouch.download' version '1.2'
+    id 'com.github.hierynomus.license' version '0.11.0'
+}
 
 import de.undercouch.gradle.tasks.download.Download
 
