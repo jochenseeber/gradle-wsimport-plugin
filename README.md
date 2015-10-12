@@ -1,7 +1,7 @@
 Gradle wsimport Plugin
 ======================
 
-This is a plugin to run [wsimport](https://jax-ws.java.net/2.2.10/docs/ch04.html#tools-wsimport) on WSDL files to generate the Java code required to access a web service (aka the really comprehensibly named "JAX-WS portable artifacts" ;-).
+This is a plugin to run [wsimport](https://jax-ws.java.net/2.2.10/docs/ch04.html#tools-wsimport) on WSDL files to generate the Java code required to access a web service (aka the really comprehensibly named 'JAX-WS portable artifacts' ;-).
 
 With this plugin, you can create builds that do not require a network connection to download WSDL files during build time. Instead, you can use a separate download task to update the local WSDL files, so everything required to build is availably locally.
 
@@ -11,7 +11,7 @@ Applying the plugin
 ### Gradle 2.1 and higher
 
     plugins {
-        id 'me.seeber.github.gradle-wsimport-plugin' version '0.1.1'
+        id 'me.seeber.gradle-wsimport-plugin' version '0.2.0'
     }
 
 ### Gradle 1.x and 2.0
@@ -20,8 +20,9 @@ Applying the plugin
         repositories {
             jcenter()
         }
+
         dependencies {
-            classpath 'me.seeber.github.gradle-wsimport-plugin:0.1.1'
+            classpath 'gradle.plugin.me.seeber:gradle-wsimport-plugin:0.2.0'
         }
     }
 
@@ -40,7 +41,9 @@ Currently there are no configuration options.
 
 You can use the [download plugin](https://github.com/michel-kraemer/gradle-download-task) to download the WSDLs. Here's an example from the demo projects:
 
-    plugins { id "de.undercouch.download" version "1.2" }
+    plugins {
+        id 'de.undercouch.download' version '1.2'
+    }
 
     import de.undercouch.gradle.tasks.download.Download
 

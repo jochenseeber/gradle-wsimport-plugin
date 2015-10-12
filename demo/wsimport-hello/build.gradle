@@ -5,7 +5,7 @@ buildscript {
     }
 
     dependencies {
-        classpath group: 'com.github.jochenseeber', name: 'gradle-wsimport-plugin', version: '0.1.1'
+        classpath group: 'com.github.jochenseeber', name: 'gradle-wsimport-plugin', version: '0.2.0'
     }
 }
 
@@ -16,7 +16,7 @@ import de.undercouch.gradle.tasks.download.Download
 
 group = 'me.seeber.gradle.wsimport.demo'
 version = '1.0.0'
-description = """Hello world demo project for Gradle wsimport plugin"""
+description = '''Hello world demo project for Gradle wsimport plugin'''
 
 repositories {
     mavenLocal()
@@ -35,17 +35,19 @@ task downloadWsdl(type: Download) {
 }
 
 jar {
-    manifest { attributes 'Main-Class': 'me.seeber.gradle.wsimport.demo.hello.HelloMain' }
+    manifest {
+        attributes 'Main-Class': 'me.seeber.gradle.wsimport.demo.hello.HelloMain'
+    }
 }
 
 eclipse {
-    project { name = "${name}-${version}" }
-
     classpath {
         downloadSources = true
         downloadJavadoc = true
     }
 }
 
-license { header = file('LICENSE.txt') }
+license {
+    header = file('LICENSE.txt')
+}
 
