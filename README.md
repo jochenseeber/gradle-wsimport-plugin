@@ -11,7 +11,7 @@ Applying the plugin
 ### Gradle 2.1 and higher
 
     plugins {
-        id 'me.seeber.gradle-wsimport-plugin' version '0.2.0'
+        id 'me.seeber.gradle-wsimport-plugin' version '0.2.1'
     }
 
 ### Gradle 1.x and 2.0
