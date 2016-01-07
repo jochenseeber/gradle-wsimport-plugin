@@ -54,6 +54,7 @@ public class WsimportTask extends DefaultTask {
                 wsdlLocation: change.file.name,
                 extension: true,
                 xendorsed: true,
+                xadditionalHeaders: true,
                 xnocompile: true)
             }
         }
