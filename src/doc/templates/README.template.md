@@ -9,7 +9,7 @@ Applying the plugin
 -------------------
 
     plugins {
-        id "me.seeber.gradle-wsimport-plugin" version "1.0.0-SNAPSHOT"
+        id "me.seeber.gradle-wsimport-plugin" version "${project.version}"
     }
 
 Usage
@@ -49,4 +49,4 @@ See the [demo project](https://github.com/jochenseeber/gradle-wsimport-demo) for
 License
 -------
 
-This plugin is licensed under the [BSD 2-Clause](LICENSE.txt) license.
+This plugin is licensed under the [${project.projectConfig.license.name}](${project.relativePath(project.license.header)}) license.

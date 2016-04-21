@@ -2,42 +2,44 @@ buildscript {
     repositories {
         mavenLocal()
         mavenCentral()
+        jcenter()
     }
 
     dependencies {
-        classpath group: 'gradle.plugin.me.seeber', name: 'gradle-wsimport-plugin', version: '0.2.1'
+        classpath group: "me.seeber.gradle", name: "gradle-wsimport-plugin", version: "0.2.2-SNAPSHOT"
     }
 }
 
 plugins {
-    id 'de.undercouch.download' version '1.2'
-    id 'com.github.hierynomus.license' version '0.11.0'
+    id "de.undercouch.download" version "1.2"
+    id "com.github.hierynomus.license" version "0.11.0"
 }
 
 import de.undercouch.gradle.tasks.download.Download
 
-group = 'me.seeber.gradle.wsimport.demo'
-version = '1.0.0'
-description = '''Weather demo project for Gradle wsimport plugin'''
+group = "me.seeber.gradle.wsimport.demo"
+version = "1.0.0"
+description = "Weather demo project for Gradle wsimport plugin"
 
 repositories {
     mavenLocal()
     mavenCentral()
+    jcenter()
 }
 
-apply plugin: 'java'
-apply plugin: 'eclipse'
-apply plugin: 'me.seeber.wsimport'
+apply plugin: "java"
+apply plugin: "eclipse"
+apply plugin: "me.seeber.wsimport"
 
 task downloadWsdl(type: Download) {
-    description 'Download WSDL'
-    src 'http://wsf.cdyne.com/WeatherWS/Weather.asmx?WSDL'
-    dest 'src/main/wsdl/me/seeber/gradle/wsimport/demo/weather/client/Weather.wsdl'
+    description "Download WSDL"
+    src "http://wsf.cdyne.com/WeatherWS/Weather.asmx?WSDL"
+    dest "src/main/wsdl/me/seeber/gradle/wsimport/demo/weather/client/Weather.wsdl"
 }
 
 jar {
     manifest {
-        attributes 'Main-Class': 'me.seeber.gradle.wsimport.demo.hello.HelloMain'
+        attributes "Main-Class": "me.seeber.gradle.wsimport.demo.hello.HelloMain"
     }
 }
 
@@ -49,6 +51,6 @@ eclipse {
 }
 
 license {
-    header = file('LICENSE.txt')
+    header = file("LICENSE.txt")
 }
 

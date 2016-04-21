@@ -1,76 +1,40 @@
 buildscript {
     repositories {
-        maven {
-            url 'https://plugins.gradle.org/m2/'
-        }
+        mavenLocal()
+        mavenCentral()
+        jcenter()
+        maven { url "https://plugins.gradle.org/m2/" }
     }
 
     dependencies {
-        classpath group: 'com.gradle.publish', name: 'plugin-publish-plugin', version: '0.9.1'
-        classpath group: 'pl.allegro.tech.build', name: 'axion-release-plugin', version: '1.3.0'
-        classpath group: 'nl.javadude.gradle.plugins', name: 'license-gradle-plugin', version: '0.11.0'
+        classpath group: "me.seeber.gradle", name: "gradle-project-plugin", version: "1.0.0-SNAPSHOT"
     }
 }
 
-apply plugin: 'com.gradle.plugin-publish'
-apply plugin: 'eclipse'
-apply plugin: 'groovy'
-apply plugin: 'license'
-apply plugin: 'maven'
-apply plugin: 'pl.allegro.tech.build.axion-release'
-apply plugin: 'maven-publish'
+version = "1.0.0-SNAPSHOT"
+group = "me.seeber.gradle"
+description = "Run wsimport on WSDL files to generate Java code required to access web services"
 
-scmVersion {
-    tag {
-        prefix = project.name
-    }
+apply plugin: "me.seeber.project.gradle-plugin"
+apply plugin: "me.seeber.repository.bintray"
+apply plugin: "me.seeber.repository.github"
+apply plugin: "me.seeber.repository.maven"
+apply plugin: "me.seeber.ide.eclipse"
+
+projectConfig {
+    organization.name = "Jochen Seeber"
+    inceptionYear = 2015
+    license.name = "BSD 2-Clause"
 }
 
-group = 'me.seeber'
-version = scmVersion.version
-description = '''Gradle wsimport plugin'''
-
-repositories {
-    mavenLocal()
-    mavenCentral()
-}
-
-dependencies {
-    compile gradleApi()
-    compile localGroovy()
-    testCompile group: 'org.spockframework', name: 'spock-core', version: '1.0-groovy-2.3'
-    testCompile group: 'org.hamcrest', name: 'hamcrest-core', version: '1.3'
-}
+githubConfig { user = "jochenseeber" }
 
 pluginBundle {
-    website = 'https://github.com/jochenseeber/gradle-wsimport-plugin'
-    vcsUrl = 'https://github.com/jochenseeber/gradle-wsimport-plugin.git'
-    description = 'Run wsimport on WSDL files to generate Java code required to access web services'
-    tags = ['soap', 'wsdl', 'wsimport']
+    description = "Run wsimport on WSDL files to generate Java code required to access web services"
+    tags = ["soap", "wsdl", "wsimport"]
 
     plugins {
-        wsimportPlugin {
-            id = 'me.seeber.wsimport'
-            displayName = 'Run wsimport on WSDL files'
-        }
-    }
-}
-
-license {
-    header = file('LICENSE.txt')
-}
-
-publishing {
-    publications {
-        mavenJava(MavenPublication) {
-            from components.java
-        }
-    }
-}
-
-eclipse {
-    classpath {
-        downloadSources = true
-        downloadJavadoc = true
+        // Here to keep the darn formatter happy
+        wsimportPlugin { id = "me.seeber.wsimport" }
     }
 }
