@@ -8,9 +8,11 @@ With this plugin, you can create builds that do not require a network connection
 Applying the plugin
 -------------------
 
-    plugins {
-        id "me.seeber.gradle-wsimport-plugin" version "${project.version}"
-    }
+```gradle
+plugins {
+    id "me.seeber.gradle-wsimport-plugin" version "${project.version}"
+}
+```
 
 Usage
 -----
@@ -25,21 +27,25 @@ Currently there are no configuration options.
 
 You can use the [download plugin](https://github.com/michel-kraemer/gradle-download-task) to download the WSDLs. Here's an example from the demo projects:
 
-    plugins {
-        id "de.undercouch.download" version "1.2"
-    }
+```gradle
+plugins {
+    id "de.undercouch.download" version "1.2"
+}
 
-    import de.undercouch.gradle.tasks.download.Download
+import de.undercouch.gradle.tasks.download.Download
 
-    task downloadWsdl(type: Download) {
-        description "Download WSDL"
-        src "http://www-inf.int-evry.fr/cours/WebServices/TP_BPEL/files/PingPong.wsdl"
-        dest "src/main/wsdl/me/seeber/gradle/wsimport/demo/hello/client/PingPong.wsdl"
-    }
+task downloadWsdl(type: Download) {
+    description "Download WSDL"
+    src "http://www-inf.int-evry.fr/cours/WebServices/TP_BPEL/files/PingPong.wsdl"
+    dest "src/main/wsdl/me/seeber/gradle/wsimport/demo/hello/client/PingPong.wsdl"
+}
+```
 
 Then you can update the local WSDL file with
 
-    # gradle downloadWsdl
+```bash
+gradle downloadWsdl
+```
 
 Examples
 --------
