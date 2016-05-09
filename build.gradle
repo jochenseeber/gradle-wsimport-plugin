@@ -16,9 +16,9 @@ group = "me.seeber.gradle"
 description = "Run wsimport on WSDL files to generate Java code required to access web services"
 
 apply plugin: "me.seeber.project.gradle-plugin"
-apply plugin: "me.seeber.repository.bintray"
+apply plugin: "me.seeber.distribution.bintray"
 apply plugin: "me.seeber.repository.github"
-apply plugin: "me.seeber.repository.maven"
+apply plugin: "me.seeber.distribution.maven"
 apply plugin: "me.seeber.ide.eclipse"
 
 projectConfig {
