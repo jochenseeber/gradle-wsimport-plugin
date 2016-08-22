@@ -10,7 +10,7 @@ Applying the plugin
 
 ```gradle
 plugins {
-    id "me.seeber.gradle-wsimport-plugin" version "1.0.0-SNAPSHOT"
+    id "me.seeber.gradle-wsimport-plugin" version "0.2.2"
 }
 ```
 
