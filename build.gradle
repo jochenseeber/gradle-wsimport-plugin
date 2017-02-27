@@ -7,14 +7,14 @@ buildscript {
     }
 
     dependencies {
-        classpath group: "me.seeber.gradle", name: "gradle-bintray-config", version: "1.0.0"
-        classpath group: "me.seeber.gradle", name: "gradle-license-config", version: "1.0.0"
-        classpath group: "me.seeber.gradle", name: "gradle-github-config", version: "1.0.0"
-        classpath group: "me.seeber.gradle", name: "gradle-plugin-publish-config", version: "1.0.0"
+        classpath group: "me.seeber.gradle", name: "gradle-bintray-config", version: "1.1.0"
+        classpath group: "me.seeber.gradle", name: "gradle-license-config", version: "1.1.0"
+        classpath group: "me.seeber.gradle", name: "gradle-github-config", version: "1.1.0"
+        classpath group: "me.seeber.gradle", name: "gradle-plugin-publish-config", version: "1.1.0"
     }
 }
 
-version = "1.0.0"
+version = "1.1.0"
 group = "me.seeber.gradle"
 description = "Run wsimport on WSDL files to generate Java code required to access web services"
 
@@ -38,7 +38,7 @@ model {
 }
 
 dependencies {
-    compile(group: "com.google.guava", name: "guava", version: "19.0")
+    compile(group: "com.google.guava", name: "guava", version: "21.0")
 }
 
 pluginBundle {
