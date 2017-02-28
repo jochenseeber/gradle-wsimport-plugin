@@ -1,7 +1,7 @@
 /**
  * BSD 2-Clause License
  *
- * Copyright (c) 2016, Jochen Seeber
+ * Copyright (c) 2016-2017, Jochen Seeber
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -25,7 +25,6 @@
  * OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-
 package me.seeber.gradle.wsimport;
 
 import java.io.Serializable;

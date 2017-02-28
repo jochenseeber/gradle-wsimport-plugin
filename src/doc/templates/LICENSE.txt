@@ -1,6 +1,6 @@
 BSD 2-Clause License
 
-Copyright (c) 2016-2017, Jochen Seeber
+Copyright (c) 2016-${year}, Jochen Seeber
 All rights reserved.
 
 Redistribution and use in source and binary forms, with or without
