@@ -29,7 +29,7 @@ You can use the [download plugin](https://github.com/michel-kraemer/gradle-downl
 
 ```gradle
 plugins {
-    id "de.undercouch.download" version "1.2"
+    id "de.undercouch.download" version "3.3.0"
 }
 
 import de.undercouch.gradle.tasks.download.Download
