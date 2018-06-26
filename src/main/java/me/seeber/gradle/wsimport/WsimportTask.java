@@ -152,7 +152,10 @@ public class WsimportTask extends ConventionTask {
         options.put("s", getDestinationDir());
         options.put("extension", true);
         options.put("Xnocompile", true);
-        options.put("B-classpath", getProject().getConfigurations().getAt("xjc").getAsPath());
+        final Configuration xjcConfig = getProject().getConfigurations().getAt("xjc");
+        if (xjcConfig != null && !xjcConfig.isEmpty()) {
+            options.put("B-classpath", xjcConfig.getAsPath());
+        }
 
         for (String extension : getXjcExtensions()) {
             options.put("B-X" + extension, true);
