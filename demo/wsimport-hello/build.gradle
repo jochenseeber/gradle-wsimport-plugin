@@ -6,7 +6,7 @@ buildscript {
     }
 
     dependencies {
-        classpath group: "me.seeber.gradle", name: "gradle-wsimport-plugin", version: "1.1.1"
+        classpath group: "me.seeber.gradle", name: "gradle-wsimport-plugin", version: "1.1.2"
     }
 }
 
@@ -18,7 +18,7 @@ plugins {
 import de.undercouch.gradle.tasks.download.Download
 
 group = "me.seeber.gradle.wsimport.demo"
-version = "1.1.1"
+version = "1.1.2"
 description = "Hello world demo project for Gradle wsimport plugin"
 
 repositories {
